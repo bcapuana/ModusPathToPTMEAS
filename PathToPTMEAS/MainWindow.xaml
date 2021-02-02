@@ -1,0 +1,33 @@
+﻿<Window x:Class="PathToPTMEAS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:local="clr-namespace:PathToPTMEAS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <TextBlock Text="Path From Modus"
+                       DockPanel.Dock="Top"/>
+            <TextBox Name="tbInput" TextChanged="tbInput_TextChanged"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <TextBlock Text="PTMeas Output"
+                       DockPanel.Dock="Top" Margin="2.5"/>
+                <RadioButton Name="rbAllAxesTouch" Margin="2.5" Checked="rbAllAxesTouch_Checked" Unchecked="rbAllAxesTouch_Unchecked">All Axes Touch</RadioButton>
+                <RadioButton Name="rbCMMTouch" Margin="2.5"> CMM Touch</RadioButton>
+            </StackPanel>
+            <avalon:TextEditor ShowLineNumbers="True" IsReadOnly="True" Name="tbOutput"/>
+            <!--<TextBox Name="tbOutput" AcceptsReturn="True"
+                     IsEnabled="True"
+                     IsReadOnly="True"></TextBox>-->
+        </DockPanel>
+    </Grid>
+</Window>
