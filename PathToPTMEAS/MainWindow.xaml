@@ -7,27 +7,78 @@
         xmlns:local="clr-namespace:PathToPTMEAS"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
-            <TextBlock Text="Path From Modus"
+    <TabControl>
+        <TabItem Header="Path to PTMEAS">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0">
+                    <TextBlock Text="Path From Modus"
                        DockPanel.Dock="Top"/>
-            <TextBox Name="tbInput" TextChanged="tbInput_TextChanged"></TextBox>
-        </DockPanel>
-        <DockPanel Grid.Row="1">
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock Text="PTMeas Output"
+                    <TextBox Name="tbInput" TextChanged="tbInput_TextChanged"></TextBox>
+                </DockPanel>
+                <DockPanel Grid.Row="1">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                        <TextBlock Text="PTMeas Output"
                        DockPanel.Dock="Top" Margin="2.5"/>
-                <RadioButton Name="rbAllAxesTouch" Margin="2.5" Checked="rbAllAxesTouch_Checked" Unchecked="rbAllAxesTouch_Unchecked">All Axes Touch</RadioButton>
-                <RadioButton Name="rbCMMTouch" Margin="2.5"> CMM Touch</RadioButton>
-            </StackPanel>
-            <avalon:TextEditor ShowLineNumbers="True" IsReadOnly="True" Name="tbOutput"/>
-            <!--<TextBox Name="tbOutput" AcceptsReturn="True"
+                        <RadioButton Name="rbAllAxesTouch" Margin="2.5" Checked="rbAllAxesTouch_Checked" Unchecked="rbAllAxesTouch_Unchecked">All Axes Touch</RadioButton>
+                        <RadioButton Name="rbCMMTouch" Margin="2.5">CMM Touch</RadioButton>
+                    </StackPanel>
+                    <avalon:TextEditor ShowLineNumbers="True" IsReadOnly="True" Name="tbOutput"/>
+                    <!--<TextBox Name="tbOutput" AcceptsReturn="True"
                      IsEnabled="True"
                      IsReadOnly="True"></TextBox>-->
-        </DockPanel>
-    </Grid>
+                </DockPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Convert Path to HeadCS">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Part CSY">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Create Path from PTDATA">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Content="Path Name"/>
+                    <TextBox Name="txbPathName" MinWidth="250"/>
+                </StackPanel>
+                <DockPanel Grid.Row="1">
+                    <Label Content="Input" DockPanel.Dock="Top"/>
+                    <avalon:TextEditor Grid.Row="2" ShowLineNumbers="True"  IsReadOnly="False" Name="tbPathInput"
+                                       TextChanged="tbPathInput_TextChanged"/>
+                </DockPanel>
+                <DockPanel Grid.Row="2">
+                    <Label Content="Output" DockPanel.Dock="Top"/>
+                    <avalon:TextEditor Grid.Row="2" ShowLineNumbers="True"  IsReadOnly="True" Name="tbPathOutput"/>
+                </DockPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

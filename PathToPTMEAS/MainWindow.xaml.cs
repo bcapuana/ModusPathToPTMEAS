@@ -93,5 +93,16 @@ namespace PathToPTMEAS
         {
             CreatePTMEAS();
         }
+
+        private void tbPathInput_TextChanged(object sender, EventArgs e)
+        {
+            string output = $"P({txbPathName.Text})=PATH/CURVE";
+            string[] delimeters = new[] { Environment.NewLine };
+            List<string> inputText = tbPathInput.Text.Split(delimeters, StringSplitOptions.None).ToList();
+            
+            foreach(string line in inputText)
+                output += $",{line.Replace('\t', ',')}";
+            tbPathOutput.Text = output;
+        }
     }
 }
